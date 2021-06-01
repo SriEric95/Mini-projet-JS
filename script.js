@@ -12,6 +12,34 @@ let nombreAleatoire = Math.floor(Math.random()*1001);
 let coups = 0;
 let nombreChoisi;
 
+// Etape 6 - Créer la fonction vérifier
+
+function verifier(nombre){
+
+    let instruction =document.createElement('div');
+
+    if(nombre<nombreAleatoire){
+
+        instruction.textContent = "#" + coups + "( " + nombre +" ) C'est  plus !";
+
+        instruction.className = "instruction plus";
+
+    }
+    else if(nombre>nombreAleatoire)
+    {
+        instruction.textContent = "#" + coups + "( " + nombre +" ) C'est  moins !";
+
+        //instruction.className = "instruction moins";
+    }
+    else{
+        instruction.textContent = "#" + coups + "( " + nombre +" ) félicitation vous avez trouvé le juste prix !";
+
+        instruction.className = "instruction fini";
+    }
+
+    document.querySelector('#instructions').prepend(instruction);
+}
+
 // Etape 4 - Vérifier que l'utilisateur donne bien un nombre
 
 input.addEventListener('keyup', () => {
@@ -38,8 +66,8 @@ formulaire.addEventListener('submit',(event) => {
         input.style.borderColor = "silver";
         nombreChoisi = input.value;
         input.value = '';
+        verifier(nombreChoisi);
     }
 });
 
 
-// Etape 6 - Créer la fonction vérifier
