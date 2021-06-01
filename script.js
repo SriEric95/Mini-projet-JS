@@ -29,7 +29,7 @@ function verifier(nombre){
     {
         instruction.textContent = "#" + coups + "( " + nombre +" ) C'est  moins !";
 
-        //instruction.className = "instruction moins";
+        instruction.className = "instruction moins";
     }
     else{
         instruction.textContent = "#" + coups + "( " + nombre +" ) félicitation vous avez trouvé le juste prix !";
