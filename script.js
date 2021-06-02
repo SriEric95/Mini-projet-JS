@@ -2,6 +2,10 @@
 let input = document.querySelector('#prix');
 let error = document.querySelector('small');
 let formulaire = document.querySelector('#formulaire');
+let images = [
+    ["bmw.jpg",8000],
+    ["citroen.jpg",4000]
+];
 
 // Etape 2 - Cacher l'erreur
 // error.hidden=true;
@@ -9,6 +13,15 @@ error.style.display="none";
 
 // Etape 3 - Générer un nombre aléatoire
 let nombreAleatoire = Math.floor(Math.random()*1001);
+let nombreImage = Math.floor(Math.random()*2);
+nombreAleatoire = images[nombreImage][1];
+
+let img = document.createElement('img');
+img.src= images[nombreImage][0];
+
+let block = document.getElementById("image");
+block.append(img);
+
 let coups = 0;
 let nombreChoisi;
 
